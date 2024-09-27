@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function tinhTong() {
+            let n = parseInt(document.getElementById("n").value);
+            let tong = 0;
+            for (let i = 1; i <= n; i++) {
+                tong += i;
+            }
+            document.getElementById("result").innerHTML = "Tổng từ 1 đến " + n + " là: " + tong;
+        }
+        function tinhTongChan() {
+            let n = parseInt(document.getElementById("n1").value);
+            let tong = 0;
+            for (let i = 1; i <= n; i++) {
+                if (i % 2 === 0) {
+                    tong += i;
+                }
+            }
+            document.getElementById("result1").innerHTML = "Tổng các số chẵn từ 1 đến " + n + " là: " + tong;
+        }
+        function tinhTongLe() {
+            let n = parseInt(document.getElementById("n2").value);
+            let tong = 0;
+            for (let i = 1; i <= n; i++) {
+                if (i % 2 !== 0) {
+                    tong += i;
+                }
+            }
+            document.getElementById("result2").innerHTML = "Tổng các số lẻ từ 1 đến " + n + " là: " + tong;
+        }
+        function kiemTraNguyenTo() {
+            let n = parseInt(document.getElementById("n3").value);
+            if (n <= 1) {
+                document.getElementById("result3").innerHTML = n + " không phải là số nguyên tố";
+                return;
+            }
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    document.getElementById("result3").innerHTML = n + " không phải là số nguyên tố";
+                    return;
+                }
+            }
+            document.getElementById("result3").innerHTML = n + " là số nguyên tố";
+        }
+        function timUCLN() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            document.getElementById("result4").innerHTML = "UCLN của hai số là: " + a;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Tính tổng từ 1 đến n</h2>
+    <input type="number" id="n" placeholder="Nhập n">
+    <button onclick="tinhTong()">Tính tổng</button>
+    <p id="result"></p>
+    <h2>Tính tổng các số chẵn từ 1 đến n</h2>
+    <input type="number" id="n1" placeholder="Nhập n">
+    <button onclick="tinhTongChan()">Tính tổng</button>
+    <p id="result1"></p>
+    <h2>Tính tổng các số lẻ từ 1 đến n</h2>
+    <input type="number" id="n2" placeholder="Nhập n">
+    <button onclick="tinhTongLe()">Tính tổng</button>
+    <p id="result2"></p>
+    <h2>Kiểm tra n có phải là số nguyên tố không?</h2>
+    <input type="number" id="n3" placeholder="Nhập n">
+    <button onclick="kiemTraNguyenTo()">Kiểm tra</button>
+    <p id="result3"></p>
+    <h2>Tìm UCLN của 2 số a và b</h2>
+    <input type="number" id="a" placeholder="Nhập số a">
+    <input type="number" id="b" placeholder="Nhập số b">
+    <button onclick="timUCLN()">Tìm UCLN</button>
+    <p id="result4"></p>
+    
+    </body>
+
+</html>
